@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>World Happiness Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2b6777;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #52ab98;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+    nav button {
+      background-color: white;
+      border: 1px solid #2b6777;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    nav button:hover {
+      background-color: #2b6777;
+      color: white;
+    }
+    section {
+      padding: 20px;
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .chart-block {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .chart-block img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .chart-block h3 {
+      text-align: center;
+      color: #2b6777;
+    }
+    .chart-block p {
+      font-size: 14px;
+      color: #333;
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <h1>World Happiness Visualization Dashboard</h1>
+  <p>This dashboard shows global happiness trends from 2015 to 2022. It includes charts built with Python, Tableau, and D3.js. You can explore how factors like GDP, life expectancy, and freedom influence happiness across different countries and years.</p>
+</header>
+
+  <nav>
+    <button onclick="showSection('all')">Dashboard (Default)</button>
+    <button onclick="showSection('matplotlib')">Matplotlib</button>
+    <button onclick="showSection('tableau')">Tableau</button>
+    <button onclick="showSection('d3')">D3.js</button>
+  </nav>
+
+  <section id="all" class="active">
+    <div class="chart-grid">
+      <div class="chart-block">
+        <h3>Average Happiness Over Time</h3>
+        <img src="6.png" alt="Avg Happiness">
+        <p>Global score trend from 2015–2022.</p>
+      </div>
+      <div class="chart-block">
+        <h3>Correlation Heatmap</h3>
+        <img src="7.png" alt="Heatmap">
+        <p>Correlations between happiness and related metrics.</p>
+      </div>
+      <div class="chart-block">
+        <h3>Feature Bar Chart</h3>
+        <img src="8.png" alt="Feature Bar">
+        <p>Top influencing features of happiness.</p>
+      </div>
+      <div class="chart-block">
+        <h3>Top 5 Country Trends</h3>
+        <img src="9.png" alt="Trends">
+        <p>Score changes in the happiest countries.</p>
+      </div>
+      <div class="chart-block">
+        <h3>Top 10 Happy Nations</h3>
+        <img src="10.png" alt="Bar Chart">
+        <p>Leading countries by happiness score in 2022.</p>
+      </div>
+      <div class="chart-block">
+        <h3>Pie: Top 10 Scores</h3>
+        <img src="11.png" alt="Pie Chart">
+        <p>Happiness share of top 10 countries.</p>
+      </div>
+      <div class="chart-block">
+        <h3>GDP vs Score – Tableau</h3>
+        <img src="12.png" alt="Tableau1">
+        <p>Country-level comparison across economic and health indicators.</p>
+      </div>
+      <div class="chart-block">
+        <h3>Corruption Chart</h3>
+        <img src="13.png" alt="Corruption">
+        <p>Perception of corruption by year and country.</p>
+      </div>
+      <div class="chart-block">
+        <h3>Treemap by Score</h3>
+        <img src="14.png" alt="Treemap">
+        <p>Visual breakdown of countries by happiness score size in 2022.</p>
+      </div>
+      <div class="chart-block">
+        <h3>GDP vs Happiness – D3.js</h3>
+        <iframe src="https://vizhub.com/Lohith0529/60f7720bf34e48b2b9e832a0bea44840?mode=embed"></iframe>
+        <p>Scatter plot of GDP vs Happiness score, colored by year.</p>
+      </div>
+      <div class="chart-block">
+        <h3>D3.js – Year Selectable GDP vs Score</h3>
+        <iframe src="https://vizhub.com/Lohith0529/b8b839008fc6479593412b9c305796fe?mode=embed"></iframe>
+        <p>Interactive scatter plot with tooltip & dropdown to explore GDP vs Score over years.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="matplotlib">
+    <div class="chart-block">
+      <h3>Average Happiness Over Time</h3>
+      <img src="6.png" alt="Line Chart: Average Happiness">
+      <p>Shows average global happiness scores over the years, highlighting dips during the COVID-19 pandemic.</p>
+    </div>
+    <div class="chart-block">
+      <h3>Correlation Heatmap</h3>
+      <img src="7.png" alt="Heatmap Correlation">
+      <p>Displays correlations between happiness and various factors like GDP, freedom, and social support.</p>
+    </div>
+    <div class="chart-block">
+      <h3>Feature Correlation Bar</h3>
+      <img src="8.png" alt="Barplot of Correlation">
+      <p>Highlights top features influencing happiness using correlation with score.</p>
+    </div>
+    <div class="chart-block">
+      <h3>Top 5 Countries Over Time</h3>
+      <img src="9.png" alt="Top Countries Trend">
+      <p>Line chart comparing happiness score trends of top-ranked countries.</p>
+    </div>
+    <div class="chart-block">
+      <h3>Top 10 Happiest Countries (2022)</h3>
+      <img src="10.png" alt="Top 10 Bar Chart">
+      <p>Bar chart showing the happiest nations in 2022.</p>
+    </div>
+    <div class="chart-block">
+      <h3>Pie Chart – Score Share of Top 10 Countries</h3>
+      <img src="11.png" alt="Top 10 Pie Chart">
+      <p>Visualizes how much each of the top 10 countries contributes to overall happiness.</p>
+    </div>
+  </section>
+
+  <section id="tableau">
+    <div class="chart-block">
+      <h3>Country Comparison: GDP, Health, and Score</h3>
+      <img src="12.png" alt="Tableau Sheet 1">
+      <p>Compares countries based on average GDP per capita, life expectancy, and happiness scores.</p>
+    </div>
+    <div class="chart-block">
+      <h3>Corruption Perception Over Years</h3>
+      <img src="13.png" alt="Tableau Sheet 2">
+      <p>Bar chart visualizing corruption perception trends by year and country.</p>
+    </div>
+    <div class="chart-block">
+      <h3>Treemap of Happiness Score (2022)</h3>
+      <img src="14.png" alt="Tableau Sheet 3">
+      <p>Each block represents a country with size proportional to its score.</p>
+    </div>
+  </section>
+
+  <section id="d3">
+    <div class="chart-block">
+      <h3>D3.js Scatterplot – GDP vs Happiness</h3>
+      <iframe src="https://vizhub.com/Lohith0529/60f7720bf34e48b2b9e832a0bea44840?mode=embed"></iframe>
+      <p>Scatter plot of GDP vs Happiness score, colored by year.</p>
+    </div>
+    <div class="chart-block">
+      <h3>D3.js – Year Selectable GDP vs Score</h3>
+      <iframe src="https://vizhub.com/Lohith0529/b8b839008fc6479593412b9c305796fe?mode=embed"></iframe>
+      <p>Interactive scatter plot with tooltip & dropdown to explore GDP vs Score over years.</p>
+    </div>
+  </section>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
